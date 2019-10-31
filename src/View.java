@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class View extends JFrame {
     private Controller controller;
+    protected JLabel statusLabel;
 
     public View(Controller controller) {
         super("");
@@ -18,6 +19,9 @@ public class View extends JFrame {
         JPanel contentPanel = new JPanel();
 
 
+
+        statusLabel = new JLabel();
+        contentPanel.add(statusLabel);
 
         getContentPane().add(contentPanel);
     }
