@@ -4,6 +4,7 @@ import java.awt.*;
 public class View extends JFrame {
     private Controller controller;
     protected JLabel statusLabel;
+    protected JLabel banner;
 
     public View(Controller controller) {
         super("");
@@ -17,6 +18,7 @@ public class View extends JFrame {
 
     public void setupUI() {
         JPanel contentPanel = new JPanel();
+        banner = new JLabel("Welcome to Color Chooser!");
 
 
 

@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class Controller {
     private Model model;
     private View view;
@@ -6,6 +9,9 @@ public class Controller {
         this.model = model;
         this.view = new View(this);
 
+        Color newColor = JColorChooser.showDialog(null,
+                "Choose Symbol Color",
+                view.banner.getBackground());
 
     }
 
