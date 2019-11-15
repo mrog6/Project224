@@ -35,10 +35,10 @@ public class Controller extends JPanel {
         else {
             view.playerTwoName.setForeground(newColor2);
         }
-
-
+        view.buttons[0].setBackground(newColor1);
 
         //view.statusLabel.setForeground(newColor);
+        //^^ do that with the buttons each turn :)
     }
 
     public void startOver() {

@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f649bad7-36cc-4f6d-9bb1-738c3c6c8c0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project224/ColorChooser$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project224/ColorChooser.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project224/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project224/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project224/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project224/View.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />

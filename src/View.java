@@ -98,6 +98,7 @@ public class View extends JFrame implements ActionListener {
             buttons[i].setFont(new Font(" ", Font.BOLD, 20));
             buttons[i].setPreferredSize(new Dimension(3, 3));
             buttons[i].addActionListener(this);
+            buttons[i].setOpaque(true);
             gridPanel.add(buttons[i]);
         }
         bottomPanel.add(gridPanel);
