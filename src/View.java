@@ -16,7 +16,7 @@ public class View extends JFrame implements ActionListener {
     protected JPanel contentPanel;
     protected JButton resetButton;
     protected JButton saveExitButton;
-    protected JButton[] buttons;
+    protected JButton[][] buttons;
     protected final String PLAYER_ONE_SYMBOL = "X";
     protected final String PLAYER_TWO_SYMBOL = "O";
 
@@ -91,15 +91,17 @@ public class View extends JFrame implements ActionListener {
         // grid for the JButtons
         JPanel gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(15, 15));
-        buttons = new JButton[225];
-        for(int i = 0; i < 225; i++) {
-            buttons[i] = new JButton();
-            buttons[i].setText(" ");
-            buttons[i].setFont(new Font(" ", Font.BOLD, 20));
-            buttons[i].setPreferredSize(new Dimension(3, 3));
-            buttons[i].addActionListener(this);
-            buttons[i].setOpaque(true);
-            gridPanel.add(buttons[i]);
+        buttons = new JButton[15][15];
+        for(int i = 0; i < 15; i++) {
+            for(int j=0; j<15; j++) {
+                buttons[i][j] = new JButton();
+                buttons[i][j].setText(" ");
+                buttons[i][j].setFont(new Font(" ", Font.BOLD, 20));
+                buttons[i][j].setPreferredSize(new Dimension(3, 3));
+                buttons[i][j].addActionListener(this);
+                buttons[i][j].setOpaque(true);
+                gridPanel.add(buttons[i][j]);
+            }
         }
         bottomPanel.add(gridPanel);
 
@@ -117,9 +119,11 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        for(int i = 0; i < 225; i++) {
-            if(e.getSource() == buttons[i])
-                controller.pressButton(i);
+        for(int i = 0; i < 15; i++) {
+            for(int j=0; j<15; j++) {
+                if (e.getSource() == buttons[i][j])
+                    controller.pressButton(i, j);
+            }
         }
     }
 }
