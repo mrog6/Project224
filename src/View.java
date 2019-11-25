@@ -26,7 +26,7 @@ public class View extends JFrame implements ActionListener {
         this.controller = controller;
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(800, 1000));
+        setPreferredSize(new Dimension(1000, 800));
         setupUI();
         pack();
     }
@@ -35,16 +35,14 @@ public class View extends JFrame implements ActionListener {
         contentPanel = (JPanel) getContentPane();
         banner = new JLabel("Welcome to Color Chooser!");
 
-        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
-
         // layout for the top half of the app: two gridLayouts for the players inside of a boxLayout
         JPanel topPanel = new JPanel();
-        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
-        topPanel.setPreferredSize(new Dimension(800, 100));
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+        topPanel.setPreferredSize(new Dimension(150, 200));
 
         // player 1 info box
         JPanel leftPanel = new JPanel();
-        leftPanel.setLayout(new GridLayout(3, 2));
+        leftPanel.setLayout(new GridLayout(6, 0));
         leftPanel.setBorder(BorderFactory.createTitledBorder("Player 1 (X)"));
         JLabel playerOneNameLabel = new JLabel("Name:");
         playerOneName = new JLabel(" ");
@@ -61,7 +59,7 @@ public class View extends JFrame implements ActionListener {
 
         // player 2 info box
         JPanel rightPanel = new JPanel();
-        rightPanel.setLayout(new GridLayout(3, 2));
+        rightPanel.setLayout(new GridLayout(6, 0));
         rightPanel.setBorder(BorderFactory.createTitledBorder("Player 2 (O)"));
         JLabel playerTwoNameLabel = new JLabel("Name:");
         playerTwoName = new JLabel(" ");
@@ -80,14 +78,11 @@ public class View extends JFrame implements ActionListener {
         topPanel.add(leftPanel);
         topPanel.add(rightPanel);
 
+        JPanel statusLabelPanel = new JPanel();
         statusLabel = new JLabel("Welcome to GO-MOKU!");
-        statusLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         statusLabel.setFont(new Font(" ", Font.BOLD, 20));
+        statusLabelPanel.add(statusLabel);
 
-        // layout for the bottom half of the app: one gridlayout for the buttons inside of a boxLayout
-        JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.X_AXIS));
-        bottomPanel.setPreferredSize(new Dimension(800, 800));
         // grid for the JButtons
         JPanel gridPanel = new JPanel();
         gridPanel.setLayout(new GridLayout(15, 15));
@@ -103,7 +98,6 @@ public class View extends JFrame implements ActionListener {
                 gridPanel.add(buttons[i][j]);
             }
         }
-        bottomPanel.add(gridPanel);
 
         JPanel lastPanel = new JPanel();
         resetButton = new JButton("Reset Names and Stats");
@@ -112,10 +106,10 @@ public class View extends JFrame implements ActionListener {
         lastPanel.add(resetButton);
 
         // encapsulates both panels into the app
-        contentPanel.add(topPanel);
-        contentPanel.add(statusLabel);
-        contentPanel.add(bottomPanel);
-        contentPanel.add(lastPanel);
+        contentPanel.add(topPanel, BorderLayout.WEST);
+        contentPanel.add(statusLabelPanel, BorderLayout.NORTH);
+        contentPanel.add(gridPanel, BorderLayout.CENTER);
+        contentPanel.add(lastPanel, BorderLayout.SOUTH);
     }
 
     public void actionPerformed(ActionEvent e) {
