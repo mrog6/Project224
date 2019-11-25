@@ -121,8 +121,9 @@ public class View extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         for(int i = 0; i < 15; i++) {
             for(int j=0; j<15; j++) {
-                if (e.getSource() == buttons[i][j])
+                if (e.getSource() == buttons[i][j]) {
                     controller.pressButton(i, j);
+                }
             }
         }
     }

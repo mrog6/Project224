@@ -59,6 +59,7 @@ public class Controller extends JPanel {
     }
 
     public void pressButton(int i, int j) {
+
         if (!model.validMove(i, j)) {
             if (turn % 2 == 1) {
                 view.statusLabel.setText("Invalid Move. " + view.playerOneName.getText() + "'s turn");
@@ -73,16 +74,35 @@ public class Controller extends JPanel {
 
             if (turn % 2 == 1) {
                 view.buttons[i][j].setText("X");
-                turn++;
                 view.statusLabel.setText(view.playerTwoName.getText() + "'s turn");
                 view.buttons[i][j].setForeground(newColor1);
             }
             else if (turn % 2 == 0) {
                 view.buttons[i][j].setText("O");
-                turn++;
                 view.statusLabel.setText(view.playerOneName.getText() + "'s turn");
                 view.buttons[i][j].setForeground(newColor2);
             }
+
+
+            if (model.checkWin(i, j, turn)) {
+                System.out.println("WINNER");
+                for (int x = 0; x<15; x++) {
+                    for (int y = 0; y<15; y++) {
+                        view.buttons[x][y].setEnabled(false);
+                    }
+                }
+
+                if (turn % 2 == 1) {
+                    view.statusLabel.setText(view.playerOneName.getText() + " Wins!");
+                }
+                else if (turn % 2 == 0) {
+                    view.buttons[i][j].setText("O");
+                    view.statusLabel.setText(view.playerTwoName.getText() + " Wins!");
+                    view.buttons[i][j].setForeground(newColor2);
+                }
+            }
+
+            turn++;
         }
     }
 
